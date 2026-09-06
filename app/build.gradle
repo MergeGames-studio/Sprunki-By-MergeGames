@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'ru.mergegames.sprunkiapp'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "ru.mergegames.sprunkiapp"
+        minSdk 21
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        // Оставляем только русский язык
+        resConfigs "ru"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+	
+ signingConfigs {
+    release {
+        storeFile file("key/keystore.p12")
+        storePassword 'St#9mK!zL-2026_VaultStore'
+        keyAlias 'Sprunki_Ali'
+        keyPassword 'Pr$4xV-qB#88_SignKey'
+    }
+ }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // Удаляем неиспользуемые ресурсы
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+		    signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+// Принудительные версии Kotlin
+configurations.all {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+    }
+}
+
+dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+    implementation 'com.caverock:androidsvg-aar:1.4'
+}

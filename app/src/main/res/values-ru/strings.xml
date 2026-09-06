@@ -1,0 +1,7 @@
+<resources>
+    <string name="load">Загрузка</string>
+    <string name="menu_title">Меню</string>
+    <string name="return_message">Ты действительно хочешь выйти из %s фазы?</string>
+    <string name="error_phase_load">Ошибка загрузки фазы. Попробуйте снова.</string>
+	<string name="exit_game">Вы действительно хотите выйти из игры?</string>
+</resources>

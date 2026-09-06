@@ -1,0 +1,7 @@
+<resources>
+    <string name="load">Loading</string>
+    <string name="menu_title">Menu</string>
+    <string name="return_message">Do you really want to exit phase %s?</string>
+	<string name="error_phase_load">Phase loading failed. Please retry.</string>
+	<string name="exit_game">Do you really want to exit the game?</string>
+</resources>
